@@ -19,16 +19,16 @@ Bagian laporan ini mencakup:
 ### Problem Statements
 
 Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- Apakah buku dengan jumlah halaman yang lebih banyak cenderung mendapatkan rating lebih tinggi atau lebih rendah?
+- Apa distribusi rating untuk semua buku? Apakah ada pola tertentu?
+- Apakah buku yang ditulis oleh penulis yang sama cenderung memiliki rating yang mirip?
 
 ### Goals
 
 Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+- Mengetahui apakah pembaca cenderung menyukai buku yang lebih panjang atau lebih pendek berdasarkan rating yang diberikan. Ini bisa memberikan wawasan tentang pola konsumsi literatur
+- Mengetahui tren umum selera pembaca terhadap koleksi buku dalam dataset.
+- Untuk melihat apakah nama penulis mempunyai pengaruh yang besar pada setiap buku yang ditulisnya.
 
 Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
 
@@ -41,7 +41,7 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
-
+(https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks)
 Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
