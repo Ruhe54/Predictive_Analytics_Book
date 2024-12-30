@@ -75,12 +75,12 @@ Dalam melakukan modeling untuk dataset ini akan menggunakan clustering dengan me
 2. Membuat model :
 2.1. DBSCAN
    - Sebelum melakukan modeling dilakukan Standardscaler dan fit_transform pada dataframe yang telah di olah.
-   - selanjutnya membuat model DBSCAN dengan menggunakan nilai ephoch 0.1 dan minimal samples adalah 10
+   - selanjutnya membuat model DBSCAN dengan menggunakan nilai ephoch 0.1 ,minimal samples adalah 10 , dengan algoritma ball_tree untuk menemukan nilai titik pusat yang lebih cepat, metric yang digunakan adalah minkowski yang mana ini merupakan matric standar yang menghasilkan jarak Euclidean standar, leaf_size 90 adalah Jumlah titik untuk beralih ke brute-force, p adalah nilai dari jarak Euclidean standar.
    - ditambahkan juga nilai n_clusters untuk melihat jumlah cluster yang didapatkan dan n_noise untuk jumlah noise yang didapatkan
    - ternyata mendapatkan nilai silhoutte coefficient -0.251 dengan cluster 14 dan noise point 2211.
    - setelah mendapatkan nilai yang kurang memuaskan dilanjutkan menggunakan gridsearch untuk mendapatkan nilai yang lebih baik dimana rentang nilai epoch adalah 1-2 dengan setiap step bertambah 0,1 dan min_sample 10-21.
    - dan nilai terbaik yang didapatkan adalah epoch 1,9 dengan min_sample 10 dan nilai silhouette score adalah 0,895.
-   - Selanjutnya nilai yang didapatkan akan dimasukkan ulang kedalam model untuk melihat hasilnya
+   - Selanjutnya nilai yang didapatkan akan dimasukkan ulang kedalam model untuk melihat hasilnya dengan hanya mengganti nilai epoch dan min_sample.
    - hasil yang didapatkan adalah nilai clusters adalah 2, noise point mendapatkan 29 ,dan silhouette coefficient mencapai nilai 0,895.
    - hasil yang didapatkan akan dilakukan .append ke list Result.
 
@@ -88,7 +88,8 @@ Dalam melakukan modeling untuk dataset ini akan menggunakan clustering dengan me
   - Dilakukan KelbowVisualizer untuk menemukan nilai cluster yang cocok dengan rentang 1-10.
   - dan dilakukan vilsualizer.fit dengan dataframe yang sudah bersih
   - setelah mendapatkan visualisasi nilai elbow yang baik menurut KelbowVisualizer adalah 3 tetapi nilai 4 terlihat sangat baik karena nilai distorsi dan nilai fittime saling bersentuhan di nilai 4.
-  - selanjutnya membuat modeling dengan KMean N_cluster 4 dan didapatkan nilai silhouette score 0,956 dengan cluster 4.
+  - selanjutnya membuat modeling dengan KMean N_cluster 4, random_state 42 adalah pembuatan nomor acak untuk inisialisasi centroid, max_iter 100 adalah bahwa pengulangan yang terjadi maksimal 100 , algorithm elkan adalah Variasi dapat lebih efisien pada beberapa dataset dengan cluster yang terdefinisi dengan baik, dengan menggunakan ketidaksetaraan segitiga.
+  - didapatkan nilai silhouette score 0,956 dengan cluster 4.
   - setelah mendapatkan hasil yang cukup memuaskan selanjutnya hasil yang didapatkan akan dilakukan .append ke list Result.
 
 3. pada list Result akan dirubah menjadi bentuk dataframe menggunakan pandas.DataFrame untuk melihat hasil dari kedua model yang dibuat.
