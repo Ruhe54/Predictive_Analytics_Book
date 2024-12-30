@@ -23,7 +23,7 @@ Menjelaskan tujuan dari pernyataan masalah:
 
 ## Data Understanding
 
-Data yang akan saya gunakan adalah dataset buku yang terdapat pada website goodreadsbooks yang berisikan daftar buku sebanyak 11.000 judul buku. 
+Data yang akan saya gunakan adalah dataset buku yang terdapat pada website goodreadsbooks yang berisikan daftar buku sebanyak 10.319  judul buku. 
 Berikut adalah link dari kaggle
 (https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks)
 
@@ -45,7 +45,13 @@ Berikut adalah link dari kaggle
 Untuk mendalami tentang data yang diolah terdapat beberapa langkah yang dilakuakan:
 1. mencari informasi secara menyeluruh tentang dataset dengan menggunakan .info().
 2. selanjutnya melakukan .describe untuk melihat berapa banyak data, nilai minimal, nilai maksimal serta melihat apakah ada keganjilan pada data.
-
+3. Melakuakn visualisasi pada rating semua buku.
+   pada tahap ini dilakukan visualisasi pada average_rating dengan menggunakan plot barchart untuk melihat sebaran buku dengan sumbu X adalah rating dan sumbu Y adalah jumlah buku.
+4. Melakukan visualisasi rating VS count.
+   selanjutnya adalah melakukan visualisasi menggunakan scatter plot untuk melihat bagaimana penyebaran average_rating dengan Rating_count.
+5. Visualisasi Heatmap
+   pada tahap ini visualisasi akan dilakukan pada data yang berjenis angka saja karena data-data yang lain tidak cocok jika dilakukan encorder.
+   
 ## Data Preparation
 Dalam tahap ini berikut adalah tahapan yang saya lakukan:
 1. Menghilangkan nilai 0.
@@ -53,12 +59,7 @@ Dalam tahap ini berikut adalah tahapan yang saya lakukan:
    oleh karena itu dilakukan drop pada colomn yang memiliki nilai 0.
 2. Menghapus colomn Isbn,Isbn13, dan Publisher.
    colom Isb, Isbn13 ,serta Publisher kurang memiliki hubungan dengan colomn yang lain, sehingga dilakukan drop colomn pada ketiga column tersebut.
-3. Melakuakn visualisasi pada rating semua buku.
-   pada tahap ini dilakukan visualisasi pada average_rating dengan menggunakan plot barchart untuk melihat sebaran buku dengan sumbu X adalah rating dan sumbu Y adalah jumlah buku.
-4. Melakukan visualisasi rating VS count.
-   selanjutnya adalah melakukan visualisasi menggunakan scatter plot untuk melihat bagaimana penyebaran average_rating dengan Rating_count.
-5. Visualisasi Heatmap
-   pada tahap ini visualisasi akan dilakukan pada data yang berjenis angka saja karena data-data yang lain tidak cocok jika dilakukan encorder.
+
 
 ## Modeling
 
@@ -79,4 +80,8 @@ Pada modeling ini digunakan metrik evaluasi berupa silhoutte score dimana matrik
 Sehingga pada dataset ini digunakanlah dua methode untuk mendapatkan nilai paling tinggi dimana DBSCAN hanya mendapatkan nilai 0,895 dengan total cluster hanya 2 sedangkan pada methode KMean didapatkan nilai hampir mendekati 1 yaitu 0,956 dengan total cluster 4.
 dari kedua methode yang digunakan diterapkanlah methode KMean karena nilai silhoutte score yang tinggi dan jumlah cluster yang cukup.
 
+Apakah sudah menjawab problem statment?
+Apakah berhasil mencapai goals yang diharapkan?
+Apakah solusi statement yang kamu rencanakan berdampak? Jelaskan!
+Tambahkan insight yang didapat terhadap perbedaan tiap cluster
 
