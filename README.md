@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Dicky Ary Setiawan
 
 ## Domain Proyek
 
@@ -27,7 +27,7 @@ Data yang akan saya gunakan adalah dataset buku yang terdapat pada website goodr
 Berikut adalah link dari kaggle
 (https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks)
 
-### Variabel-variabel pada Goodreads-books0 dataset adalah sebagai berikut:
+### Variabel-variabel pada Goodreads-books dataset adalah sebagai berikut:
 - BookID               : Code unik untuk mengidentifikasi setiap buku
 - Title                : Judul buku yang dipublikasikan
 - Authors              : Nama-nama penulis buku
