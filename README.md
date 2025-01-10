@@ -23,7 +23,7 @@ Menjelaskan tujuan dari pernyataan masalah:
 
 ## Data Understanding
 
-Data yang akan saya gunakan adalah dataset buku yang terdapat pada website goodreadsbooks yang berisikan daftar buku sebanyak 10.319  judul buku. 
+Data yang akan saya gunakan adalah dataset buku yang terdapat pada website goodreadsbooks yang berisikan daftar buku sebanyak 11.016  judul buku. 
 Berikut adalah link dari kaggle
 (https://www.kaggle.com/datasets/jealousleopard/goodreadsbooks)
 
@@ -59,20 +59,19 @@ Dalam tahap ini berikut adalah tahapan yang saya lakukan:
    oleh karena itu dilakukan drop pada colomn yang memiliki nilai 0.
 3. Melakukan pengecekan apakah terdapat nilai na
    pada langkah ini dilakukan untuk menghilangkan nilai na pada column yang ada ternyata terdapat 29.
-4. Melakukan Dropna
-   menghilangkan baris yang mempunyai nilai na.
-5. Menghapus colomn bookID,title,authors,language_code,publication_date.
+4. Menghapus colomn bookID,title,authors,language_code,publication_date.
    colom bookID,title,authors,language_code,publication_date kurang memiliki hubungan dengan colomn yang lain, sehingga dilakukan drop colomn pada ketiga column tersebut.
 
 
 ## Modeling
 
-1. Membuat objek scaler dari MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
-2. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
-3. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
-4. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
-5. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
-6. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
+1. Membuat dataframe baru yang berasal dari dataframe sebelumnya dengan melakukan drop dari beberapa colomn yaitu bookID,title,authors,language_code,publication_date.
+2. Membuat objek scaler dari MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
+3. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
+4. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
+5. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
+6. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
+7. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
 
 membuat modeling KNN :
 1. Membuat model K-Nearest Neighbors (KNN) untuk klasifikasi dengan menggunakan KNeighborsClassifier() dengan menggunakan fitur pelatihan dari X_train dan label y_train.
