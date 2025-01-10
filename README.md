@@ -32,14 +32,12 @@ Berikut adalah link dari kaggle
 - Title                : Judul buku yang dipublikasikan
 - Authors              : Nama-nama penulis buku
 - Average_rating       : rating rata-rata yang diberikan oleh user
-- Isbn                 : Code unik buku yang digunakan sebagai code buku internasional
-- Isbn13               : Code unik buku yang terdiri dari 13 digit yang diterbitkan secara internasional
 - language_code        : bahasa yang digunakan pada buku
 - num_pages            : jumlah halaman yang terdapat pada buku biasanya belum termasuk bagian awal buku yang berisikan informasi penerbit
 - ratings_count        : Jumlah User yang melakukan rating
 - text_reviews_count   : Jumlah User yang memberikan ulasan terhadap buku
 - Publication_date     : Tanggal dimana buku pertama kali terbit
-- Publisher            : Nama lembaga yang menerbitkan buku
+- label                : Nilai yang didapatkan dari clustering
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 Untuk mendalami tentang data yang diolah terdapat beberapa langkah yang dilakuakan:
@@ -94,9 +92,7 @@ membuat modeling SVM :
 
 ## Evaluation
 
-Pada modeling ini digunakan metrik evaluasi berupa silhoutte score dimana matrik evaluasi ini berguna untuk menentukan jumlah label yang optimal dimana nilai yang didapatkan berkisar antara -1 dan 1 dengan nilai positif yang menunjukkan tingkat kesesuaian object dengan labelnya dan nilai negatif yang kurang cocok antara object dan labelnya.
-Sehingga pada dataset ini digunakanlah dua methode untuk mendapatkan nilai paling tinggi dimana DBSCAN hanya mendapatkan nilai 0,895 dengan total label hanya 2 sedangkan pada methode KMean didapatkan nilai hampir mendekati 1 yaitu 0,956 dengan total label 4.
-dari kedua methode yang digunakan diterapkanlah methode KMean karena nilai silhoutte score yang tinggi dan jumlah label yang cukup.
+Pada modeling ini digunakan metrik evaluasi berupa Accuracy yang berguna untuk gambaran umum performa model, Precision Penting untuk menghindari prediksi false positif. Recall untuk mendeteksi sebanyak mungkin kasus positif.serta F1-Score untuk Menyeimbangkan Precision dan Recall, terutama pada dataset dengan distribusi kelas yang tidak merata. Dari kedua model diatas KNN sedikit lebih unggul dari SVM dalam metrik evaluasi. Namun, perbedaannya cukup kecil sehingga SVM tetap dapat dipertimbangkan sebagai alternatif yang kuat. Tingginya nilai presisi, recall, dan F1-score menunjukkan bahwa kedua model mampu menangani dataset dengan sangat baik, tanpa overfitting yang jelas.
 
 Apakah sudah menjawab problem statment?
 - pada pertanyaan pertama 'Apakah buku dengan jumlah halaman yang lebih banyak cenderung mendapatkan rating lebih tinggi atau lebih rendah?':
@@ -111,9 +107,6 @@ dari goal yang dipaparkan semua goal berhasil diraih
 pada goal pertama : ternyata jumlah halaman buku tidak terlalu berpengaruh terhadap rating yang diberikan.
 pada goal kedua : pada masalah ini tren buku cenderung merata.
 pada goal ketiga : benar adanya nama penulis yang besar selalu mempunyai rating yang baik itu dikarenakan mereka sudah mempunyai basis pembaca.
-
-Apakah solusi statement yang kamu rencanakan berdampak? Jelaskan!
-Solusi statement yang direncanakan adalah dengan membuat labeling sehingga pada pebisnis toko buku mengetahui buku mana yang mempunyai daya jual yang baik sehingga produk bisa terjual dengan baik.
 
 Tambahkan insight yang didapat terhadap perbedaan tiap label:
 
