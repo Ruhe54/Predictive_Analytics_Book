@@ -39,7 +39,6 @@ Berikut adalah link dari kaggle
 - Publication_date     : Tanggal dimana buku pertama kali terbit
 - label                : Nilai yang didapatkan dari clustering
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
 Untuk mendalami tentang data yang diolah terdapat beberapa langkah yang dilakuakan:
 1. mencari informasi secara menyeluruh tentang dataset dengan menggunakan .info().
 2. selanjutnya melakukan .describe untuk melihat berapa banyak data, nilai minimal, nilai maksimal serta melihat apakah ada keganjilan pada data.
@@ -61,17 +60,15 @@ Dalam tahap ini berikut adalah tahapan yang saya lakukan:
    pada langkah ini dilakukan untuk menghilangkan nilai na pada column yang ada ternyata terdapat 29.
 4. Menghapus colomn bookID,title,authors,language_code,publication_date.
    colom bookID,title,authors,language_code,publication_date kurang memiliki hubungan dengan colomn yang lain, sehingga dilakukan drop colomn pada ketiga column tersebut.
-
+5. Membuat dataframe baru yang berasal dari dataframe sebelumnya dengan melakukan drop dari beberapa colomn yaitu bookID,title,authors,language_code,publication_date.
+6. Membuat objek scaler dari MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
+7. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
+8. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
+9. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
+10. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
+11. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
 
 ## Modeling
-
-1. Membuat dataframe baru yang berasal dari dataframe sebelumnya dengan melakukan drop dari beberapa colomn yaitu bookID,title,authors,language_code,publication_date.
-2. Membuat objek scaler dari MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
-3. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
-4. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
-5. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
-6. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
-7. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
 
 membuat modeling KNN :
 1. Membuat model K-Nearest Neighbors (KNN) untuk klasifikasi dengan menggunakan KNeighborsClassifier() dengan menggunakan fitur pelatihan dari X_train dan label y_train.
@@ -91,15 +88,28 @@ membuat modeling SVM :
 
 ## Evaluation
 
+hasil dari modeling 
+
+1. K-Nearest Neighbors (KNN)
+   Accuracy: 99.50%
+   Precision: 99.50%
+   Recall: 99.50%
+   F1-Score: 99.50%
+2. Support Vector Machine (SVM)
+   Accuracy: 99.31%
+   Precision: 99.31%
+   Recall: 99.31%
+   F1-Score: 99.31%
+   
 Pada modeling ini digunakan metrik evaluasi berupa Accuracy yang berguna untuk gambaran umum performa model, Precision Penting untuk menghindari prediksi false positif. Recall untuk mendeteksi sebanyak mungkin kasus positif.serta F1-Score untuk Menyeimbangkan Precision dan Recall, terutama pada dataset dengan distribusi kelas yang tidak merata. Dari kedua model diatas KNN sedikit lebih unggul dari SVM dalam metrik evaluasi. Namun, perbedaannya cukup kecil sehingga SVM tetap dapat dipertimbangkan sebagai alternatif yang kuat. Tingginya nilai presisi, recall, dan F1-score menunjukkan bahwa kedua model mampu menangani dataset dengan sangat baik, tanpa overfitting yang jelas.
 
 Apakah sudah menjawab problem statment?
 - pada pertanyaan pertama 'Apakah buku dengan jumlah halaman yang lebih banyak cenderung mendapatkan rating lebih tinggi atau lebih rendah?':
    ternyata ketebalan halaman suatu buku tidak mempunyai pengaruh besar terhadap rating buku itu sendiri
 - pada pertanyaan kedua 'Bagaimana distribusi rating untuk semua buku? Apakah ada pola tertentu?'
-   dari data diatas dapat dilihat bahwa distribusi rating yang didapatkan sangat merata antara label, tetapi terdapat pola dimana label 0 memiliki rating count yang terendah yaitu dibawah 250ribu reviewer, label 1 12-25 juta reviewer , label 250ribu - 12 juta reviewer ,dan label 3 lebih dari 25 juta reviewer
+  distribusi rating yang didapatkan sangat merata antara label, tetapi terdapat pola dimana label 0 memiliki rating count yang terendah yaitu dibawah 250ribu reviewer, label 1 12-25 juta reviewer , label 250ribu - 12 juta reviewer ,dan label 3 lebih dari 25 juta reviewer
 - pada pertanyaan ketiga 'Apakah buku yang ditulis oleh penulis yang sama cenderung memiliki rating yang mirip?' :
-  dari data diatas diambil dua pengarang terkenal yang menulis buku sendirian yaitu J.K Rowling dengan buku terkenalnya harry potter dan Agatha Cristhie yang dijuluki sebagai ratu misteri, dari data diatas memang betul bahwa buku yang ditulis oleh penulis yang sama cenderung memiliki rating yang tidak jauh berbeda antara satu dengan lainnya.
+  dua pengarang terkenal yang menulis buku sendiri yaitu J.K Rowling dengan buku terkenalnya harry potter dan Agatha Cristhie yang dijuluki sebagai ratu mistery,  memang betul bahwa buku yang ditulis oleh penulis yang sama cenderung memiliki rating yang tidak jauh berbeda antara satu dengan lainnya.
   
 Apakah berhasil mencapai goals yang diharapkan?
 dari goal yang dipaparkan semua goal berhasil diraih 
