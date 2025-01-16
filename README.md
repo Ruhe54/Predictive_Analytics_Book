@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8fb3e545-6c53-4024-81bb-8dd2f296a1c3)# Laporan Proyek Machine Learning - Dicky Ary Setiawan
+# Laporan Proyek Machine Learning - Dicky Ary Setiawan
 
 ## Domain Proyek
 
@@ -90,6 +90,7 @@ membuat modeling SVM :
 ## Evaluation
 
 Korelasi antar data :
+![image](https://github.com/user-attachments/assets/8fb3e545-6c53-4024-81bb-8dd2f296a1c3)
 - Korelasi positif yang kuat antara ratings_count dan text_reviews_count sangat tinggi (0.87). Hal ini menunjukkan bahwa semakin banyak jumlah rating yang diberikan pada sebuah buku, semakin tinggi kemungkinan buku tersebut mendapatkan banyak ulasan teks.
 - Korelasi antara average_rating dengan fitur lainnya seperti ratings_count dan text_reviews_count sangat rendah (masing-masing sekitar 0.04), menunjukkan bahwa rata-rata rating sebuah buku tidak terlalu bergantung pada popularitas buku.
 - label memiliki korelasi moderat dengan ratings_count dan text_reviews_count (masing-masing 0.61). Ini menunjukkan bahwa model klasifikasi dapat memanfaatkan informasi jumlah rating dan ulasan teks untuk mengelompokkan buku dengan lebih baik.
