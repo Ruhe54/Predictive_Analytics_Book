@@ -61,13 +61,12 @@ Dalam tahap ini berikut adalah tahapan yang saya lakukan:
    oleh karena itu dilakukan drop pada colomn yang memiliki nilai 0.
 2. Menghapus colomn bookID,title,authors,language_code,publication_date.
    colom bookID,title,authors,language_code,publication_date kurang memiliki hubungan dengan colomn yang lain, sehingga dilakukan drop colomn pada ketiga column tersebut.
-3. Membuat dataframe baru yang berasal dari dataframe sebelumnya dengan melakukan drop dari beberapa colomn yaitu bookID,title,authors,language_code,publication_date.
-4. Melakukan normaliasai dengan menggunakan MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
-5. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
-6. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
-7. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
-8. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
-9. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
+3. Melakukan normaliasai dengan menggunakan MinMaxScaler. Scaler ini digunakan untuk mereskalakan data numerik ke rentang [0,1].
+4. numeric_columns digunakan untuk memilih kolom dari dataframe yang memiliki tipe data numerik.
+5. selanjutnya melakukan fit_transform untuk menghitung nilai minimum dan maksimum dari setiap kolom numerik.
+6. memisahkan fitur dari dataset dengan menghapus kolom label dengan variable X dan valiabel z berisi kolom label saja
+7. selanjunya membuat lab_enc dengan membuat objek encoder dari LabelEncoder. Encoder ini digunakan untuk mengubah data kategorikal menjadi nilai numerik.
+8. membagi dataset menjadi data training dan testing dengan test_size=0,2 dan random_state=42.
 
 ## Modeling
 
@@ -90,7 +89,6 @@ membuat modeling SVM :
 ## Evaluation
 
 Korelasi antar data :
-![image](https://github.com/user-attachments/assets/8fb3e545-6c53-4024-81bb-8dd2f296a1c3)
 - Korelasi positif yang kuat antara ratings_count dan text_reviews_count sangat tinggi (0.87). Hal ini menunjukkan bahwa semakin banyak jumlah rating yang diberikan pada sebuah buku, semakin tinggi kemungkinan buku tersebut mendapatkan banyak ulasan teks.
 - Korelasi antara average_rating dengan fitur lainnya seperti ratings_count dan text_reviews_count sangat rendah (masing-masing sekitar 0.04), menunjukkan bahwa rata-rata rating sebuah buku tidak terlalu bergantung pada popularitas buku.
 - label memiliki korelasi moderat dengan ratings_count dan text_reviews_count (masing-masing 0.61). Ini menunjukkan bahwa model klasifikasi dapat memanfaatkan informasi jumlah rating dan ulasan teks untuk mengelompokkan buku dengan lebih baik.
